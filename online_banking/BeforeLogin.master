@@ -1,7 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="BeforeLogin.master.cs" Inherits="BeforeLogin" %>
-
 <!DOCTYPE html>
-
 <html>
 <head runat="server">
     <title></title>
@@ -10,7 +8,6 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    
 </head>
 <body>
     <form id="form1" runat="server">
