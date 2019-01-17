@@ -39,7 +39,7 @@
                     <table class="nav-justified">
                         <tr>
                             <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
-                            <td class="auto-style2"></span></td>
+                            <td class="auto-style2"></td>
                             <td>
                                 <asp:Button ID="Button1" runat="server" Text="Home Page" PostBackUrl="~/HomeBeforeLogin.aspx" CssClass="auto-style2" />
                             </td>
@@ -53,26 +53,31 @@
                         <asp:Label ID="Label1" runat="server" Text="UserName" CssClass="auto-style2"></asp:Label>
                     </td>
                     <td class="auto-style2">
-                        <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style2"></asp:TextBox>
+                        <asp:TextBox ID="username_tb" runat="server" CssClass="auto-style2"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="Uname_reqval" runat="server" ControlToValidate="Username_tb" ErrorMessage="Username cannot be empty" ForeColor="Red">*</asp:RequiredFieldValidator>
                     </td>
-                    <span class="auto-style2">
                 </tr>
                 <tr>
                     <td class="auto-style5">
                         <asp:Label ID="Label2" runat="server" Text="Password" CssClass="auto-style2"></asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="TextBox2" runat="server" CssClass="auto-style2"></asp:TextBox>
+                        <asp:TextBox ID="passwd_tb" runat="server" CssClass="auto-style2" ForeColor="Red" TextMode="Password"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="PaswdTb_reqval" runat="server" ControlToValidate="passwd_tb" CssClass="auto-style2" ErrorMessage="Password cannot be empty" ForeColor="Red">*</asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr class="auto-style2">
-                    <td class="auto-style5">&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td class="auto-style5">
+                        <asp:Label ID="error_lbl" runat="server" ForeColor="Red"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" />
+                    </td>
                 </tr>
                 <tr>
-                    <td class="auto-style5"></span></td>
+                    <td class="auto-style5"></td>
                     <td>
-                        <asp:Button ID="Button2" runat="server" CssClass="auto-style2" Text="Login" />
+                        <asp:Button ID="login_btn" runat="server" CssClass="auto-style2" Text="Login" OnClick="Login_tbn_Click" />
                     </td>
                 </tr>
             </table>
