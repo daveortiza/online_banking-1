@@ -68,6 +68,12 @@
         .auto-style13 {
             width: 199px;
         }
+        .auto-style14 {
+            margin-left: 320px;
+        }
+        .auto-style15 {
+            font-size: xx-large;
+        }
     </style>
 </head>
 <body>
@@ -85,12 +91,12 @@
                         </asp:DropDownList>
                     </td>
                     <td class="auto-style11">
-                        <asp:TextBox ID="TextBox1" runat="server" placeholder="First Name" ToolTip="Enter First Name"></asp:TextBox>
+                        <asp:TextBox ID="fname_tb" runat="server" placeholder="First Name" ToolTip="Enter First Name"></asp:TextBox>
                         &nbsp;&nbsp;
-                        <asp:TextBox ID="TextBox2" runat="server" placeholder="Middle Name"></asp:TextBox>
+                        <asp:TextBox ID="TextBox10" runat="server" placeholder="First Name" ToolTip="Enter First Name"></asp:TextBox>
                     </td>
                     <td class="auto-style12">
-                        <asp:TextBox ID="TextBox3" runat="server" placeholder="Last Name"></asp:TextBox>
+                        <asp:TextBox ID="TextBox11" runat="server" placeholder="First Name" ToolTip="Enter First Name"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -103,7 +109,8 @@
                         <asp:ScriptManager ID="ScriptManager1" runat="server">
                         </asp:ScriptManager>
                     </td>
-                    <td class="auto-style3"></td>
+                    <td class="auto-style3">
+                        &nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style4">
@@ -151,9 +158,11 @@
                         <asp:Label ID="Label7" runat="server" Text="Account Type"></asp:Label>
                     </td>
                     <td class="auto-style8">
-                        <asp:RadioButton ID="RadioButton1" runat="server" GroupName="Account" Text="Saving" />
-                        <asp:RadioButton ID="RadioButton2" runat="server" GroupName="Account" Text="Current" />
-                        <asp:RadioButton ID="RadioButton3" runat="server" GroupName="Account" Text="Demat" />
+                        <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal">
+                            <asp:ListItem>Saving</asp:ListItem>
+                            <asp:ListItem>Current</asp:ListItem>
+                            <asp:ListItem>Demat</asp:ListItem>
+                        </asp:RadioButtonList>
                     </td>
                     <td class="auto-style3">&nbsp;</td>
                 </tr>
@@ -179,11 +188,10 @@
                 </tr>
                 <tr>
                     <td class="auto-style6">
-                        <asp:Label ID="lbl_message" runat="server"></asp:Label>
                         <asp:Button ID="Button2" runat="server" PostBackUrl="~/HomeBeforeLogin.aspx" Text="Home" />
                     </td>
                     <td class="auto-style9">
-                        <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" />
+                        <asp:Button ID="submit_btn" runat="server" Text="Submit" OnClick="submit_btn_Click" EnableViewState="False" PostBackUrl="~/Registration_successfull.aspx" />
                     </td>
                     <td class="auto-style2">
                         <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" PostBackUrl="~/Login.aspx" Text="Login" />
@@ -191,6 +199,10 @@
                 </tr>
             </table>
         </div>
+        <p>
+            &nbsp;</p>
+        <p class="auto-style14">
+            &nbsp;</p>
     </form>
 </body>
 </html>

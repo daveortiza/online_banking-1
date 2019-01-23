@@ -15,23 +15,27 @@ public partial class _Default : System.Web.UI.Page
         con.ConnectionString = "Data Source=RAJGADA\\SQL;Initial Catalog=Bank_test;Integrated Security=True";
         con.Open();
     }
-
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        SqlCommand cmd = new SqlCommand("insert into sinup" + "(fname,lname,email,gender,address,phone,pass)values(@fname,@lname,@email,@gender,@address,@phone,@pass)",con);
-        cmd.Parameters.AddWithValue("@fname", TextBox1.Text);
-        cmd.Parameters.AddWithValue("@lname", TextBox2.Text);
-        cmd.Parameters.AddWithValue("@email", TextBox4.Text);
-        cmd.Parameters.AddWithValue("@gender", DropDownList2.SelectedItem.Value);
-        cmd.Parameters.AddWithValue("@address", TextBox9.Text);
-        cmd.Parameters.AddWithValue("@phone", TextBox5.Text);
-        cmd.Parameters.AddWithValue("@pass", TextBox6.Text);
-        cmd.ExecuteNonQuery();
-        lbl_message.Text = "Signed Up sucessfully";
-    }
-
     protected void Button3_Click(object sender, EventArgs e)
     {
 
+    }
+
+    protected void submit_btn_Click(object sender, EventArgs e)
+    {
+        SqlCommand cmd = new SqlCommand("insert into sinup (Title,fname,mname,lname,Dob,gender,email,address,mobile,Account,pass)" +
+        "values(@Title,@fname,@mname,@lname,@Dob,@gender,@email,@address,@mobile,@Account,@pass)", con);
+        cmd.Parameters.AddWithValue("@Title", DropDownList1.SelectedValue);
+        cmd.Parameters.AddWithValue("@fname", fname_tb.Text);
+        cmd.Parameters.AddWithValue("@mname", TextBox10.Text);
+        cmd.Parameters.AddWithValue("@lname", TextBox11.Text);
+        cmd.Parameters.AddWithValue("@Dob", TextBox8.Text);
+        cmd.Parameters.AddWithValue("@gender", DropDownList2.SelectedItem.Value);
+        cmd.Parameters.AddWithValue("@email", TextBox4.Text);
+        cmd.Parameters.AddWithValue("@address", TextBox9.Text);
+        cmd.Parameters.AddWithValue("@mobile", TextBox5.Text);
+        cmd.Parameters.AddWithValue("@Account", RadioButtonList1.SelectedValue);
+        cmd.Parameters.AddWithValue("@pass", TextBox6.Text);
+        cmd.ExecuteNonQuery();
+        Response.Redirect("/Login.aspx");
     }
 }
