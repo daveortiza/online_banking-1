@@ -71,10 +71,7 @@
         .auto-style14 {
             margin-left: 320px;
         }
-        .auto-style15 {
-            font-size: xx-large;
-        }
-    </style>
+        </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -82,21 +79,14 @@
             <table border="2" class="auto-style1">
                 <tr>
                     <td class="auto-style10">
-                        <asp:DropDownList ID="DropDownList1" runat="server">
-                            <asp:ListItem Value="">Select</asp:ListItem>
-                            <asp:ListItem>Mr.</asp:ListItem>
-                            <asp:ListItem>Ms.</asp:ListItem>
-                            <asp:ListItem>Dr.</asp:ListItem>
-                            <asp:ListItem>Mx.</asp:ListItem>
-                        </asp:DropDownList>
-                    </td>
+                        &nbsp;</td>
                     <td class="auto-style11">
                         <asp:TextBox ID="fname_tb" runat="server" placeholder="First Name" ToolTip="Enter First Name"></asp:TextBox>
                         &nbsp;&nbsp;
-                        <asp:TextBox ID="TextBox10" runat="server" placeholder="First Name" ToolTip="Enter First Name"></asp:TextBox>
+                        <asp:TextBox ID="TextBox10" runat="server" placeholder="Middle Name" ToolTip="Enter First Name"></asp:TextBox>
                     </td>
                     <td class="auto-style12">
-                        <asp:TextBox ID="TextBox11" runat="server" placeholder="First Name" ToolTip="Enter First Name"></asp:TextBox>
+                        <asp:TextBox ID="TextBox11" runat="server" placeholder="Last Name" ToolTip="Enter First Name"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>

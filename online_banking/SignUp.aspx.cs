@@ -22,9 +22,8 @@ public partial class _Default : System.Web.UI.Page
 
     protected void submit_btn_Click(object sender, EventArgs e)
     {
-        SqlCommand cmd = new SqlCommand("insert into sinup (Title,fname,mname,lname,Dob,gender,email,address,mobile,Account,pass)" +
-        "values(@Title,@fname,@mname,@lname,@Dob,@gender,@email,@address,@mobile,@Account,@pass)", con);
-        cmd.Parameters.AddWithValue("@Title", DropDownList1.SelectedValue);
+        SqlCommand cmd = new SqlCommand("insert into sinup (fname,mname,lname,Dob,gender,email,address,mobile,Account,pass)" +
+        "values(@fname,@mname,@lname,@Dob,@gender,@email,@address,@mobile,@Account,@pass)", con);
         cmd.Parameters.AddWithValue("@fname", fname_tb.Text);
         cmd.Parameters.AddWithValue("@mname", TextBox10.Text);
         cmd.Parameters.AddWithValue("@lname", TextBox11.Text);
