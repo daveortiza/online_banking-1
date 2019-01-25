@@ -50,11 +50,11 @@
             <table border="1" class="auto-style4">
                 <tr>
                     <td class="auto-style5">
-                        <asp:Label ID="Label1" runat="server" Text="UserName" CssClass="auto-style2"></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text="Email-ID" CssClass="auto-style2"></asp:Label>
                     </td>
                     <td class="auto-style2">
-                        <asp:TextBox ID="username_tb" runat="server" CssClass="auto-style2"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="Uname_reqval" runat="server" ControlToValidate="Username_tb" ErrorMessage="Username cannot be empty" ForeColor="Red">*</asp:RequiredFieldValidator>
+                        <asp:TextBox ID="email_tb" runat="server" CssClass="auto-style2"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="Uname_reqval" runat="server" ControlToValidate="email_tb" ErrorMessage="Email_ID cannot be empty" ForeColor="Red">*</asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>

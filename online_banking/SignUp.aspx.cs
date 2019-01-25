@@ -35,6 +35,7 @@ public partial class _Default : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@Account", RadioButtonList1.SelectedValue);
         cmd.Parameters.AddWithValue("@pass", TextBox6.Text);
         cmd.ExecuteNonQuery();
+        cmd.Parameters.Clear();
         Response.Redirect("/Login.aspx");
     }
 }
