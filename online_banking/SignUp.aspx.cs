@@ -22,7 +22,7 @@ public partial class _Default : System.Web.UI.Page
 
     protected void submit_btn_Click(object sender, EventArgs e)
     {
-        SqlCommand cmd = new SqlCommand("insert into sinup (fname,mname,lname,Dob,gender,email,address,mobile,Account,pass)" +
+       SqlCommand cmd = new SqlCommand("insert into sinup (fname,mname,lname,Dob,gender,email,address,mobile,Account,pass)" +
         "values(@fname,@mname,@lname,@Dob,@gender,@email,@address,@mobile,@Account,@pass)", con);
         cmd.Parameters.AddWithValue("@fname", fname_tb.Text);
         cmd.Parameters.AddWithValue("@mname", TextBox10.Text);
@@ -36,6 +36,6 @@ public partial class _Default : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@pass", TextBox6.Text);
         cmd.ExecuteNonQuery();
         cmd.Parameters.Clear();
-        Response.Redirect("/Login.aspx");
+
     }
 }

@@ -181,7 +181,7 @@
                         <asp:Button ID="Button2" runat="server" PostBackUrl="~/HomeBeforeLogin.aspx" Text="Home" />
                     </td>
                     <td class="auto-style9">
-                        <asp:Button ID="submit_btn" runat="server" Text="Submit" OnClick="submit_btn_Click" EnableViewState="False" PostBackUrl="~/Registration_successfull.aspx" />
+                        <asp:Button ID="submit_btn" runat="server" Text="Submit" OnClick="submit_btn_Click" EnableViewState="False" />
                     </td>
                     <td class="auto-style2">
                         <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" PostBackUrl="~/Login.aspx" Text="Login" />
