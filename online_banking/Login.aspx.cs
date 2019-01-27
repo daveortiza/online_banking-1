@@ -34,9 +34,9 @@ public partial class Login : System.Web.UI.Page
             if (EmailID == email_tb.Text && Password == passwd_tb.Text)
             {
                 if (dt.Rows[i]["Account"].ToString() == "Admin")
-                    Response.Redirect("~/Admin/Default.aspx");
+                    Response.Redirect("~/Admin/Admin.aspx");
                 else if (dt.Rows[i]["Account"].ToString() == "Saving")
-                    Response.Redirect("~/Saving/Default.aspx");
+                    Response.Redirect("~/Saving/Saving.aspx");
                else if (dt.Rows[i]["Account"].ToString() == "Current")
                     Response.Redirect("~/Saving/Default.aspx");
                 else if (dt.Rows[i]["Account"].ToString() == "Demat")
