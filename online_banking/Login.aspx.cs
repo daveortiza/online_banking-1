@@ -22,7 +22,7 @@ public partial class Login : System.Web.UI.Page
         con.ConnectionString = conString;
         cmd.Connection = con;
         con.Open();
-        cmd.CommandText = "select email,Account,pass From sinup";
+        cmd.CommandText = "select fname,lname,email,Account,pass From sinup";
         sqlda = new SqlDataAdapter(cmd.CommandText, con);
         dt = new DataTable();
         sqlda.Fill(dt);
@@ -31,6 +31,8 @@ public partial class Login : System.Web.UI.Page
         {
             EmailID = dt.Rows[i]["email"].ToString();
             Password = dt.Rows[i]["pass"].ToString();
+            Session["fname"] = dt.Rows[i]["fname"].ToString();
+            Session["lname"] = dt.Rows[i]["lname"].ToString();
             if (EmailID == email_tb.Text && Password == passwd_tb.Text)
             {
                 if (dt.Rows[i]["Account"].ToString() == "Admin")
