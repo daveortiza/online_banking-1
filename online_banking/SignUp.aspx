@@ -79,7 +79,8 @@
             <table border="2" class="auto-style1">
                 <tr>
                     <td class="auto-style10">
-                        &nbsp;</td>
+                        <asp:Label ID="Label10" runat="server" Text="Name"></asp:Label>
+                    </td>
                     <td class="auto-style11">
                         <asp:TextBox ID="fname_tb" runat="server" placeholder="First Name" ToolTip="Enter First Name"></asp:TextBox>
                         &nbsp;&nbsp;
@@ -153,6 +154,14 @@
                             <asp:ListItem>Current</asp:ListItem>
                             <asp:ListItem>Demat</asp:ListItem>
                         </asp:RadioButtonList>
+                    </td>
+                    <td class="auto-style3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style5">
+                        Opening Balance</td>
+                    <td class="auto-style8">
+                        <asp:TextBox ID="TextBox12" runat="server" placeholder="5000"></asp:TextBox>
                     </td>
                     <td class="auto-style3">&nbsp;</td>
                 </tr>
