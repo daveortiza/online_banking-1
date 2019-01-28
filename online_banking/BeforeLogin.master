@@ -46,6 +46,8 @@
                     </ul>
                 </div>
             </nav>
+        </div>
+        <div class="container">
             <div id="myslider" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#myslider" data-slide-to="0" class="active"></li>
@@ -87,6 +89,18 @@
                 </div>
             </div>
         </div>
+        <footer>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 text-left">
+                        <asp:Label ID="footer" runat="server" Text="&amp;copy Online Banking"></asp:Label>
+                    </div>
+                    <div class=" col-md-6 text-right">
+                        <asp:Label ID="Label1" runat="server" Text="Best viewed in Edge,Chrome"></asp:Label>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </form>
 </body>
 </html>
