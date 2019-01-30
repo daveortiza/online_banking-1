@@ -11,7 +11,7 @@ using System.Data;
 public partial class Login : System.Web.UI.Page
 {
     public string conString = "Data Source=RAJGADA\\SQL;Initial Catalog=Bank_test;Integrated Security=True";
-    string EmailID, Password;
+    string Account, Password;
     SqlConnection con = new SqlConnection();
     SqlCommand cmd = new SqlCommand();
     SqlDataAdapter sqlda;
@@ -22,24 +22,24 @@ public partial class Login : System.Web.UI.Page
         con.ConnectionString = conString;
         cmd.Connection = con;
         con.Open();
-        cmd.CommandText = "select fname,lname,email,Account,pass From sinup";
+        cmd.CommandText = "select fname,lname,Account,Account_Number,pass From sinup";
         sqlda = new SqlDataAdapter(cmd.CommandText, con);
         dt = new DataTable();
         sqlda.Fill(dt);
         RowCount = dt.Rows.Count;
         for (int i = 0; i < RowCount; i++)
         {
-            EmailID = dt.Rows[i]["email"].ToString();
+            Account = dt.Rows[i]["Account_Number"].ToString();
             Password = dt.Rows[i]["pass"].ToString();
             Session["fname"] = dt.Rows[i]["fname"].ToString();
             Session["lname"] = dt.Rows[i]["lname"].ToString();
-            if (EmailID == email_tb.Text && Password == passwd_tb.Text)
+            if (Account== email_tb.Text && Password == passwd_tb.Text)
             {
                 if (dt.Rows[i]["Account"].ToString() == "Admin")
                     Response.Redirect("~/Admin/Admin.aspx");
                 else if (dt.Rows[i]["Account"].ToString() == "Saving")
                     Response.Redirect("~/Saving/Saving.aspx");
-               else if (dt.Rows[i]["Account"].ToString() == "Current")
+                else if (dt.Rows[i]["Account"].ToString() == "Current")
                     Response.Redirect("~/Saving/Default.aspx");
                 else if (dt.Rows[i]["Account"].ToString() == "Demat")
                     Response.Redirect("~/Saving/Default.aspx");

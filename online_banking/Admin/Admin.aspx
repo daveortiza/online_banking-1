@@ -8,10 +8,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Account_Number" DataSourceID="SqlDataSource1" EmptyDataText="There are no data records to display.">
+        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Account_Number" DataSourceID="SqlDataSource1">
             <Columns>
-                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
-                <asp:BoundField DataField="Account_Number" HeaderText="Account_Number" SortExpression="Account_Number" />
+                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                <asp:BoundField DataField="Account_Number" HeaderText="Account_Number" InsertVisible="False" ReadOnly="True" SortExpression="Account_Number" />
                 <asp:BoundField DataField="fname" HeaderText="fname" SortExpression="fname" />
                 <asp:BoundField DataField="mname" HeaderText="mname" SortExpression="mname" />
                 <asp:BoundField DataField="lname" HeaderText="lname" SortExpression="lname" />
@@ -25,7 +25,7 @@
                 <asp:BoundField DataField="pass" HeaderText="pass" SortExpression="pass" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Bank_test %>" DeleteCommand="DELETE FROM [sinup] WHERE [Account Number] = @Account_Number" InsertCommand="INSERT INTO [sinup] ([fname], [mname], [lname], [Dob], [gender], [email], [address], [mobile], [Account], [Account_Balance], [pass]) VALUES (@fname, @mname, @lname, @Dob, @gender, @email, @address, @mobile, @Account, @Account_Balance, @pass)" ProviderName="<%$ ConnectionStrings:Bank_test.ProviderName %>" SelectCommand="SELECT [Account Number] AS Account_Number, [fname], [mname], [lname], [Dob], [gender], [email], [address], [mobile], [Account], [Account_Balance], [pass] FROM [sinup]" UpdateCommand="UPDATE [sinup] SET [fname] = @fname, [mname] = @mname, [lname] = @lname, [Dob] = @Dob, [gender] = @gender, [email] = @email, [address] = @address, [mobile] = @mobile, [Account] = @Account, [Account_Balance] = @Account_Balance, [pass] = @pass WHERE [Account Number] = @Account_Number">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Bank_test %>" DeleteCommand="DELETE FROM [sinup] WHERE [Account_Number] = @Account_Number" InsertCommand="INSERT INTO [sinup] ([fname], [mname], [lname], [Dob], [gender], [email], [address], [mobile], [Account], [Account_Balance], [pass]) VALUES (@fname, @mname, @lname, @Dob, @gender, @email, @address, @mobile, @Account, @Account_Balance, @pass)" SelectCommand="SELECT * FROM [sinup]" UpdateCommand="UPDATE [sinup] SET [fname] = @fname, [mname] = @mname, [lname] = @lname, [Dob] = @Dob, [gender] = @gender, [email] = @email, [address] = @address, [mobile] = @mobile, [Account] = @Account, [Account_Balance] = @Account_Balance, [pass] = @pass WHERE [Account_Number] = @Account_Number">
             <DeleteParameters>
                 <asp:Parameter Name="Account_Number" Type="Int32" />
             </DeleteParameters>
