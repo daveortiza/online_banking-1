@@ -29,6 +29,12 @@
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>
                         <td>
+                            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                            <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+                            <br />
+                            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                            <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+                            <br />
                             <asp:Button ID="Button1" runat="server" Text="Transfer funds" OnClick="Button1_Click" />
                         </td>
                     </tr>

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
-using System.Configuration;
 using System.Data;
-
+using System.Configuration;
+using System.Data.SqlClient;
 public partial class Login : System.Web.UI.Page
 {
     public string conString = "Data Source=RAJGADA\\SQL;Initial Catalog=Bank_test;Integrated Security=True";
@@ -17,6 +16,9 @@ public partial class Login : System.Web.UI.Page
     SqlDataAdapter sqlda;
     DataTable dt;
     int RowCount;
+    protected void Page_Load(object sender, EventArgs e)
+    {
+    }
     protected void Login_tbn_Click(object sender, EventArgs e)
     {
         con.ConnectionString = conString;
@@ -33,7 +35,7 @@ public partial class Login : System.Web.UI.Page
             Password = dt.Rows[i]["pass"].ToString();
             Session["fname"] = dt.Rows[i]["fname"].ToString();
             Session["lname"] = dt.Rows[i]["lname"].ToString();
-            if (Account== email_tb.Text && Password == passwd_tb.Text)
+            if (Account == email_tb.Text && Password == passwd_tb.Text)
             {
                 if (dt.Rows[i]["Account"].ToString() == "Admin")
                     Response.Redirect("~/Admin/Admin.aspx");
@@ -45,8 +47,8 @@ public partial class Login : System.Web.UI.Page
                     Response.Redirect("~/Saving/Default.aspx");
                 else
                     error_lbl.Text = "Invalid UserName or Password";
-            }
 
+            }
         }
     }
 }
