@@ -18,7 +18,9 @@
                 <div class="col-md-4 text-center">
                     <asp:Label ID="Label3" runat="server" Text="Saving Account"></asp:Label>
                 </div>
-                <div class="col-md-4 text-right"><h6>Content Here</h6></div>
+                <div class="col-md-4 text-right"><h6>
+                    <asp:Label ID="Label6" runat="server"></asp:Label>
+                    </h6></div>
             </div>
             <hr/>
             <div>
@@ -36,6 +38,7 @@
                             <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
                             <br />
                             <asp:Button ID="Button1" runat="server" Text="Transfer funds" OnClick="Button1_Click" />
+                            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Show balance" />
                         </td>
                     </tr>
                 </table>

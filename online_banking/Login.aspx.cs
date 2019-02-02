@@ -35,6 +35,7 @@ public partial class Login : System.Web.UI.Page
             Password = dt.Rows[i]["pass"].ToString();
             Session["fname"] = dt.Rows[i]["fname"].ToString();
             Session["lname"] = dt.Rows[i]["lname"].ToString();
+            Session["Account_number"] = dt.Rows[i]["Account_Number"].ToString();
             if (Account == email_tb.Text && Password == passwd_tb.Text)
             {
                 if (dt.Rows[i]["Account"].ToString() == "Admin")
