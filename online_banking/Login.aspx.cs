@@ -9,9 +9,9 @@ using System.Configuration;
 using System.Data.SqlClient;
 public partial class Login : System.Web.UI.Page
 {
-    public string conString = "Data Source=RAJGADA\\SQL;Initial Catalog=Bank_test;Integrated Security=True";
+    public static string conString = ConfigurationManager.ConnectionStrings["Bank_test"].ConnectionString;
     string Account, Password;
-    SqlConnection con = new SqlConnection();
+    SqlConnection con = new SqlConnection(conString);
     SqlCommand cmd = new SqlCommand();
     SqlDataAdapter sqlda;
     DataTable dt;
@@ -21,7 +21,6 @@ public partial class Login : System.Web.UI.Page
     }
     protected void Login_tbn_Click(object sender, EventArgs e)
     {
-        con.ConnectionString = conString;
         cmd.Connection = con;
         con.Open();
         cmd.CommandText = "select fname,lname,Account,Account_Number,pass From sinup";

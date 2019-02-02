@@ -9,10 +9,10 @@ using System.Configuration;
 using System.Data.SqlClient;
 public partial class Saving_Default : System.Web.UI.Page
 {
-    public string conString = "Data Source=RAJGADA\\SQL;Initial Catalog=Bank_test;Integrated Security=True";
+    public  static string conString = ConfigurationManager.ConnectionStrings["Bank_test"].ConnectionString;
     string Account, Password, balance;
     int bal;
-    SqlConnection con = new SqlConnection();
+    SqlConnection con = new SqlConnection(conString);
     SqlCommand cmd = new SqlCommand();
     SqlDataAdapter sqlda;
     DataTable dt;
@@ -24,7 +24,6 @@ public partial class Saving_Default : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        con.ConnectionString = conString;
         cmd.Connection = con;
         con.Open();
         cmd.CommandText = "select fname,lname,Account_Number,Account_Balance From sinup";
@@ -50,5 +49,10 @@ public partial class Saving_Default : System.Web.UI.Page
                 Label4.Text = "Account Number is incorrect or does not exist";
             }
         }
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+
     }
 }
