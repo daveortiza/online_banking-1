@@ -13,16 +13,23 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 text-left">
-                    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="Welcome_lbl" runat="server" Text="Label"></asp:Label>
                 </div>
                 <div class="col-md-4 text-center">
-                    <asp:Label ID="Label3" runat="server" Text="Saving Account"></asp:Label>
                 </div>
-                <div class="col-md-4 text-right"><h6>
-                    <asp:Label ID="Label6" runat="server"></asp:Label>
-                    </h6></div>
+                <div class="col-md-4 text-right">
+                    <h3>
+                        <asp:Label ID="Acno_lbl" runat="server"></asp:Label>
+                    </h3>
+                </div>
             </div>
-            <hr/>
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <asp:Label ID="balmsg_lbl" runat="server" Text="Current Balance:"></asp:Label>
+                    <asp:Label ID="bal_lbl" runat="server"></asp:Label>
+                </div>
+            </div>
+            <hr />
             <div>
 
                 <table class="nav-justified">
@@ -32,17 +39,14 @@
                         <td>&nbsp;</td>
                         <td>
                             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                            <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+                            <asp:Label ID="Success_lbl" runat="server"></asp:Label>
                             <br />
                             <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-                            <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
                             <br />
-                            <asp:Button ID="Button1" runat="server" Text="Transfer funds" OnClick="Button1_Click" />
-                            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Show balance" />
+                            <asp:Button ID="Transfer_btn" runat="server" Text="Transfer" OnClick="Transfer_btn_Click" />
                         </td>
                     </tr>
                 </table>
-
             </div>
         </div>
     </form>

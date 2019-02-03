@@ -22,7 +22,6 @@ public partial class Login : System.Web.UI.Page
     protected void Login_tbn_Click(object sender, EventArgs e)
     {
         cmd.Connection = con;
-        con.Open();
         cmd.CommandText = "select fname,lname,Account,Account_Number,pass From sinup";
         sqlda = new SqlDataAdapter(cmd.CommandText, con);
         dt = new DataTable();

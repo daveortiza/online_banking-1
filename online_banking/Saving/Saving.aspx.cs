@@ -9,9 +9,9 @@ using System.Configuration;
 using System.Data.SqlClient;
 public partial class Saving_Default : System.Web.UI.Page
 {
-    public  static string conString = ConfigurationManager.ConnectionStrings["Bank_test"].ConnectionString;
-    string Account, Password, balance;
-    int bal;
+    public static string conString = ConfigurationManager.ConnectionStrings["Bank_test"].ConnectionString;
+    string Account, Password, balance, name;
+    int ob, bal, cb;
     SqlConnection con = new SqlConnection(conString);
     SqlCommand cmd = new SqlCommand();
     SqlDataAdapter sqlda;
@@ -19,40 +19,52 @@ public partial class Saving_Default : System.Web.UI.Page
     int RowCount;
     protected void Page_Load(object sender, EventArgs e)
     {
-        Label2.Text = "<b><font color=Brown>" + "WELLCOME:: " + "</font>" + "<b><font size=24px>" + Session["fname"] + " " + Session["lname"] + "</font>";
-    }
-
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        cmd.Connection = con;
-        con.Open();
+        Welcome_lbl.Text = "<b><font color=Brown>" + "WELLCOME:: " + "</font>" + "<b><font size=24px>" + Session["fname"] + " " + Session["lname"] + "</font>";
+        Acno_lbl.Text = "" + Session["Account_number"];
         cmd.CommandText = "select fname,lname,Account_Number,Account_Balance From sinup";
         sqlda = new SqlDataAdapter(cmd.CommandText, con);
         dt = new DataTable();
         sqlda.Fill(dt);
-        con.Close();
         RowCount = dt.Rows.Count;
         for (int i = 0; i < RowCount; i++)
         {
             Account = dt.Rows[i]["Account_Number"].ToString();
-            balance= dt.Rows[i]["Account_Balance"].ToString();
+            balance = dt.Rows[i]["Account_Balance"].ToString();
+            name = dt.Rows[i]["fname"].ToString();
             bal = Convert.ToInt32(balance);
-            if (Account == TextBox1.Text)
+            if (Account == Acno_lbl.Text)
             {
-                Label4.Text = Account;
-                bal -= Convert.ToInt32(TextBox2.Text);
-                balance =Convert.ToString(bal);
-                Label5.Text = balance;
-            }
-            else
-            {
-                Label4.Text = "Account Number is incorrect or does not exist";
+                ob = bal;
+                bal_lbl.Text = balance + ".00 Cr";
             }
         }
     }
-
-    protected void Button2_Click(object sender, EventArgs e)
+    protected void Transfer_btn_Click(object sender, EventArgs e)
     {
-
+        cmd.CommandText = "select fname,lname,Account_Number,Account_Balance From sinup";
+        sqlda = new SqlDataAdapter(cmd.CommandText, con);
+        dt = new DataTable();
+        sqlda.Fill(dt);
+        RowCount = dt.Rows.Count;
+        for (int i = 0; i < RowCount; i++)
+        {
+            Account = dt.Rows[i]["Account_Number"].ToString();
+            balance = dt.Rows[i]["Account_Balance"].ToString();
+            name = dt.Rows[i]["fname"].ToString();
+            bal = Convert.ToInt32(balance);
+            if (Account == TextBox1.Text)
+            {
+                if (Convert.ToInt32(balance) > Convert.ToInt32(TextBox2.Text))
+                {
+                    bal += Convert.ToInt32(TextBox2.Text);
+                    balance = Convert.ToString(bal);
+                    cb = ob - Convert.ToInt32(TextBox2.Text);
+                    bal_lbl.Text = Convert.ToString(cb);
+                    Success_lbl.Text = "Transaction Successfull";
+                }
+            }
+        }
     }
 }
+
+
