@@ -35,6 +35,7 @@ public partial class Saving_Default : System.Web.UI.Page
             if (Account == Acno_lbl.Text)
             {
                 ob = bal;
+                cb = ob;
                 bal_lbl.Text = balance + ".00 Cr";
             }
         }
@@ -54,14 +55,24 @@ public partial class Saving_Default : System.Web.UI.Page
             bal = Convert.ToInt32(balance);
             if (Account == TextBox1.Text)
             {
-                if (Convert.ToInt32(balance) > Convert.ToInt32(TextBox2.Text))
+                if (cb>Convert.ToInt32(TextBox2.Text))
                 {
                     bal += Convert.ToInt32(TextBox2.Text);
                     balance = Convert.ToString(bal);
                     cb = ob - Convert.ToInt32(TextBox2.Text);
                     bal_lbl.Text = Convert.ToString(cb);
                     Success_lbl.Text = "Transaction Successfull";
+                    break;
                 }
+                else
+                {
+                    Success_lbl.Text = "Not sufficient balance to transfer";
+                    break;
+                }
+            }
+            else
+            {
+                Success_lbl.Text = "Account Number is not correct";
             }
         }
     }
