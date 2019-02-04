@@ -19,7 +19,7 @@ public partial class Saving_Saving : System.Web.UI.Page
     int RowCount;
     protected void Page_Load(object sender, EventArgs e)
     {
-        Welcome_lbl.Text = "<b><font color=Brown>" + "WELLCOME:: " + "</font>" + "<b><font size=4px>" + Session["fname"] + " " + Session["lname"] + "</font>";
+        Welcome_lbl.Text =  Session["fname"] + " " + Session["lname"];
         Acno_lbl.Text = "" + Session["Account_number"];
         cmd.CommandText = "select fname,lname,Account_Number,Account_Balance From sinup";
         sqlda = new SqlDataAdapter(cmd.CommandText, con);

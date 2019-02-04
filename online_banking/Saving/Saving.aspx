@@ -8,31 +8,38 @@
         .auto-style1 {
             font-size: large;
         }
+        .auto-style2 {
+            width: 100%;
+            font-size: x-large;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="container">
         <div class="row">
             <div class="col-md-6 text-left">
-                <asp:Label ID="Welcome_lbl" runat="server" Text="Label">
-                </asp:Label>
+                <asp:Label ID="Welcome_lbl" runat="server" CssClass="auto-style1"></asp:Label>
             </div>
             <div class="col-md-6 text-right">
                 <p class="auto-style1">
-                    <asp:Label ID="Acnomsg_lbl" runat="server" Text="Account Number:"></asp:Label>
-                    <asp:Label ID="Acno_lbl" runat="server"></asp:Label>
+                    <strong>
+                    <asp:Label ID="Acnomsg_lbl" runat="server" Text="Account Number:" CssClass="auto-style1"></asp:Label>
+                    </strong>
+                    <asp:Label ID="Acno_lbl" runat="server" CssClass="auto-style1"></asp:Label>
                 </p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12 text-right">
-                <asp:Label ID="balmsg_lbl" runat="server" Text="Current Balance:"></asp:Label>
-                <asp:Label ID="bal_lbl" runat="server"></asp:Label>
+                <strong>
+                <asp:Label ID="balmsg_lbl" runat="server" Text="Balance:" CssClass="auto-style1"></asp:Label>
+                </strong>
+                <asp:Label ID="bal_lbl" runat="server" CssClass="auto-style1"></asp:Label>
             </div>
         </div>
         <hr />
         <div>
-            <table class="nav-justified">
+            <table class="auto-style2">
                 <tr>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
