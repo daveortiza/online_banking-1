@@ -19,7 +19,7 @@ public partial class Saving_Saving : System.Web.UI.Page
     int RowCount;
     protected void Page_Load(object sender, EventArgs e)
     {
-        Welcome_lbl.Text =  Session["fname"] + " " + Session["lname"];
+        Welcome_lbl.Text = "<b>Account Holder: </b>"+ Session["fname"] + " " + Session["lname"];
         Acno_lbl.Text = "" + Session["Account_number"];
         cmd.CommandText = "select fname,lname,Account_Number,Account_Balance From sinup";
         sqlda = new SqlDataAdapter(cmd.CommandText, con);
@@ -54,21 +54,29 @@ public partial class Saving_Saving : System.Web.UI.Page
             balance = dt.Rows[i]["Account_Balance"].ToString();
             name = dt.Rows[i]["fname"].ToString();
             bal = Convert.ToInt32(balance);
-            if (Account == TextBox1.Text)
+            if (Account == TextBox3.Text)
             {
-                if (cb > Convert.ToInt32(TextBox2.Text))
+                if (TextBox3.Text == Acno_lbl.Text)
                 {
-                    bal += Convert.ToInt32(TextBox2.Text);
-                    balance = Convert.ToString(bal);
-                    cb = ob - Convert.ToInt32(TextBox2.Text);
-                    bal_lbl.Text = Convert.ToString(cb)+".00 Cr";
-                    Success_lbl.Text = "Transaction Successfull";
+                    Success_lbl.Text = "Cannot transfer to self";
                     break;
                 }
                 else
                 {
-                    Success_lbl.Text = "Not sufficient balance to transfer";
-                    break;
+                    if (cb > Convert.ToInt32(TextBox2.Text))
+                    {
+                        bal += Convert.ToInt32(TextBox2.Text);
+                        balance = Convert.ToString(bal);
+                        cb = ob - Convert.ToInt32(TextBox2.Text);
+                        bal_lbl.Text = Convert.ToString(cb) + ".00 Cr";
+                        Success_lbl.Text = "<font color=Green>" + "Transaction Successfull<br> Balance updated" + "</font>";
+                        break;
+                    }
+                    else
+                    {
+                        Success_lbl.Text = "Not sufficient balance to transfer";
+                        break;
+                    }
                 }
             }
             else
