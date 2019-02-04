@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
-public partial class Saving_Default : System.Web.UI.Page
+public partial class Saving_Saving : System.Web.UI.Page
 {
     public static string conString = ConfigurationManager.ConnectionStrings["Bank_test"].ConnectionString;
     string Account, Password, balance, name;
@@ -19,7 +19,7 @@ public partial class Saving_Default : System.Web.UI.Page
     int RowCount;
     protected void Page_Load(object sender, EventArgs e)
     {
-        Welcome_lbl.Text = "<b><font color=Brown>" + "WELLCOME:: " + "</font>" + "<b><font size=24px>" + Session["fname"] + " " + Session["lname"] + "</font>";
+        Welcome_lbl.Text = "<b><font color=Brown>" + "WELLCOME:: " + "</font>" + "<b><font size=4px>" + Session["fname"] + " " + Session["lname"] + "</font>";
         Acno_lbl.Text = "" + Session["Account_number"];
         cmd.CommandText = "select fname,lname,Account_Number,Account_Balance From sinup";
         sqlda = new SqlDataAdapter(cmd.CommandText, con);
@@ -40,6 +40,7 @@ public partial class Saving_Default : System.Web.UI.Page
             }
         }
     }
+
     protected void Transfer_btn_Click(object sender, EventArgs e)
     {
         cmd.CommandText = "select fname,lname,Account_Number,Account_Balance From sinup";
@@ -55,12 +56,12 @@ public partial class Saving_Default : System.Web.UI.Page
             bal = Convert.ToInt32(balance);
             if (Account == TextBox1.Text)
             {
-                if (cb>Convert.ToInt32(TextBox2.Text))
+                if (cb > Convert.ToInt32(TextBox2.Text))
                 {
                     bal += Convert.ToInt32(TextBox2.Text);
                     balance = Convert.ToString(bal);
                     cb = ob - Convert.ToInt32(TextBox2.Text);
-                    bal_lbl.Text = Convert.ToString(cb);
+                    bal_lbl.Text = Convert.ToString(cb)+".00 Cr";
                     Success_lbl.Text = "Transaction Successfull";
                     break;
                 }
@@ -77,5 +78,3 @@ public partial class Saving_Default : System.Web.UI.Page
         }
     }
 }
-
-
