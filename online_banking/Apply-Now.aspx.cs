@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
-public partial class _Default : System.Web.UI.Page
+public partial class Apply_Now : System.Web.UI.Page
 {
     public static string conString = ConfigurationManager.ConnectionStrings["Bank_test"].ConnectionString;
     SqlCommand cmd = new SqlCommand();
@@ -21,8 +21,8 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void submit_btn_Click(object sender, EventArgs e)
     {
-       SqlCommand cmd = new SqlCommand("insert into sinup (fname,mname,lname,Dob,gender,email,address,mobile,Account,Account_Balance,pass)" +
-        "values(@fname,@mname,@lname,@Dob,@gender,@email,@address,@mobile,@Account,@Account_Balance,@pass)", con);
+        SqlCommand cmd = new SqlCommand("insert into sinup (fname,mname,lname,Dob,gender,email,address,mobile,Account,Account_Balance,pass)" +
+         "values(@fname,@mname,@lname,@Dob,@gender,@email,@address,@mobile,@Account,@Account_Balance,@pass)", con);
         cmd.Parameters.AddWithValue("@fname", fname_tb.Text);
         cmd.Parameters.AddWithValue("@mname", TextBox10.Text);
         cmd.Parameters.AddWithValue("@lname", TextBox11.Text);
