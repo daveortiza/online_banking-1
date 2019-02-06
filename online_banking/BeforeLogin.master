@@ -41,8 +41,8 @@
                         <li><a href="#">Page 3</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="SignUp.aspx"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
                         <li><a href="Login.aspx"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                        <li><a href="SignUp.aspx"><span class="glyphicon glyphicon-hand-up"></span> Apply Now</a></li>
                     </ul>
                 </div>
             </nav>

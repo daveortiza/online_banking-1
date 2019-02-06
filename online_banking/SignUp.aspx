@@ -159,7 +159,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style5">
-                        Opening Balance</td>
+                        Initial deposit</td>
                     <td class="auto-style8">
                         <asp:TextBox ID="TextBox12" runat="server" placeholder="5000"></asp:TextBox>
                     </td>
