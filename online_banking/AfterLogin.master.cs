@@ -11,4 +11,9 @@ public partial class BeforeLogin : System.Web.UI.MasterPage
     {
 
     }
+
+    protected void LinkButton1_Click(object sender, EventArgs e)
+    { 
+        Session.Abandon();
+    }
 }
