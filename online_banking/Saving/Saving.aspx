@@ -49,7 +49,7 @@
                     <td class="auto-style3">
                         <asp:Label ID="Trans_acno_lbl" runat="server" Text="Account Number"></asp:Label>
                         <asp:TextBox ID="TextBox1" runat="server" placeholder="81xxxx01"></asp:TextBox>
-                        <ajaxToolkit:FilteredTextBoxExtender ID="TextBox1_FilteredTextBoxExtender" runat="server" FilterType="Numbers" TargetControlID="TextBox1" />
+                        <ajaxToolkit:FilteredTextBoxExtender ID="TextBox1_FilteredTextBoxExtender" runat="server" FilterType="Numbers" TargetControlID="TextBox1" FilterInterval="7" />
                     </td>
                     <td>
                         <asp:Label ID="Trans_acno_lbl0" runat="server" Text="Confirm account number"></asp:Label>
