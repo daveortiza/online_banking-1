@@ -10,14 +10,7 @@
         .auto-style1 {
             font-size: large;
         }
-        .auto-style2 {
-            width: 100%;
-            font-size: x-large;
-        }
-        .auto-style3 {
-            width: 266px;
-        }
-    </style>
+        </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="container">
@@ -43,46 +36,20 @@
             </div>
         </div>
         <hr />
-        <div>
-            <table class="auto-style2">
-                <tr>
-                    <td class="auto-style3">
-                        <asp:Label ID="Trans_acno_lbl" runat="server" Text="Account Number"></asp:Label>
-                        <asp:TextBox ID="TextBox1" runat="server" placeholder="81xxxx01"></asp:TextBox>
-                        <ajaxToolkit:FilteredTextBoxExtender ID="TextBox1_FilteredTextBoxExtender" runat="server" FilterType="Numbers" TargetControlID="TextBox1" FilterInterval="7" />
-                    </td>
-                    <td>
-                        <asp:Label ID="Trans_acno_lbl0" runat="server" Text="Confirm account number"></asp:Label>
-                        <asp:TextBox ID="TextBox3" runat="server" placeholder="81xxxx01" TextMode="Password"></asp:TextBox>
-                        <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="TextBox3" ControlToValidate="TextBox1" ErrorMessage="Account number does not matches" ForeColor="Red">*</asp:CompareValidator>
-                    </td>
-                    <td>
-                        <asp:Label ID="Trans_bal_lbl" runat="server" Text="Transfer amount"></asp:Label>
-                        <asp:TextBox ID="TextBox2" runat="server" placeholder="500" ></asp:TextBox>
-                        <br />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style3">
-                        <asp:ScriptManager ID="ScriptManager1" runat="server">
-                        </asp:ScriptManager>
-                    </td>
-                    <td>
-                        <asp:Label ID="Success_lbl" runat="server" ForeColor="Red"></asp:Label>
-                        <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" />
-                    </td>
-                    <td>
-                        &nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td>
-                        <asp:Button ID="Transfer_btn" runat="server" Text="Transfer" OnClick="Transfer_btn_Click" />
-                    </td>
-                    <td>
-                        &nbsp;</td>
-                </tr>
-            </table>
+        <div class="row">
+           <div class="col-md-6">
+               <asp:Menu ID="Services" runat="server" BorderColor="#3366FF" BorderStyle="Outset" BorderWidth="1px" CssClass="auto-style1">
+                   <Items>
+                       <asp:MenuItem Text="Show Balance" Value="Show Balance"></asp:MenuItem>
+                       <asp:MenuItem Text="Transaction" Value="Transaction"></asp:MenuItem>
+                       <asp:MenuItem NavigateUrl="~/Saving/Transfer.aspx" Text="Transfer" Value="Transfer"></asp:MenuItem>
+                       <asp:MenuItem Text="Deposit" Value="Deposit"></asp:MenuItem>
+                       <asp:MenuItem Text="Fixed Deposit" Value="Fixed Deposit"></asp:MenuItem>
+                   </Items>
+               </asp:Menu>
+           </div>
+            <div class="col-md-6">
+           </div>
         </div>
     </div>
 </asp:Content>
