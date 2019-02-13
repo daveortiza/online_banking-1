@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 public partial class Login : System.Web.UI.Page
 {
     public static string conString = ConfigurationManager.ConnectionStrings["Bank_test"].ConnectionString;
-    string Account, Password;
+    string Account, Password, balance;
     SqlConnection con = new SqlConnection(conString);
     SqlCommand cmd = new SqlCommand();
     SqlDataAdapter sqlda;
@@ -22,7 +22,7 @@ public partial class Login : System.Web.UI.Page
     protected void Login_tbn_Click(object sender, EventArgs e)
     {
         cmd.Connection = con;
-        cmd.CommandText = "select fname,lname,Account,Account_Number,pass From sinup";
+        cmd.CommandText = "select fname,lname,Account,Account_Number,Account_Balance,pass From sinup";
         sqlda = new SqlDataAdapter(cmd.CommandText, con);
         dt = new DataTable();
         sqlda.Fill(dt);
@@ -31,15 +31,17 @@ public partial class Login : System.Web.UI.Page
         {
             Account = dt.Rows[i]["Account_Number"].ToString();
             Password = dt.Rows[i]["pass"].ToString();
+            balance = dt.Rows[i]["Account_Balance"].ToString();
             Session["fname"] = dt.Rows[i]["fname"].ToString();
             Session["lname"] = dt.Rows[i]["lname"].ToString();
-            Session["Account_number"] = dt.Rows[i]["Account_Number"].ToString();
+            Session["Account_number"] =Account;
+            Session["Account_Balance"] = balance;
             if (Account == email_tb.Text && Password == passwd_tb.Text)
             {
                 if (dt.Rows[i]["Account"].ToString() == "Admin")
                     Response.Redirect("~/Admin/Admin.aspx");
                 else if (dt.Rows[i]["Account"].ToString() == "Saving")
-                    Response.Redirect("~/Saving/Saving.aspx");
+                    Response.Redirect("~/Saving/My-Account.aspx");
                 else if (dt.Rows[i]["Account"].ToString() == "Current")
                     Response.Redirect("~/Saving/Default.aspx");
                 else if (dt.Rows[i]["Account"].ToString() == "Demat")
