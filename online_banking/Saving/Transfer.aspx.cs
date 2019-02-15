@@ -21,6 +21,7 @@ public partial class Saving_Transfer : System.Web.UI.Page
     {
         acno=""+Session["Account_number"];
         cb = Convert.ToInt32(Session["Account_Balance"]);
+        ob = cb;
 
     }
     protected void Transfer_btn_Click(object sender, EventArgs e)
@@ -50,12 +51,13 @@ public partial class Saving_Transfer : System.Web.UI.Page
                         bal += Convert.ToInt32(TextBox2.Text);
                         balance = Convert.ToString(bal);
                         cb = ob - Convert.ToInt32(TextBox2.Text);
+                        Session["Account_Balance"] = cb;
                         Success_lbl.Text = "<font color=Green>" + "Transaction Successfull<br> Balance updated" + "</font>";
                         break;
                     }
                     else
                     {
-                        Success_lbl.Text =" Not sufficient balance to transfer";
+                        Success_lbl.Text ="Not sufficient balance to transfer";
                         break;
                     }
                 }
