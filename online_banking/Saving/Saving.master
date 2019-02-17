@@ -89,7 +89,7 @@
                         <Items>
                             <asp:MenuItem Text="Account Statement" Value="Account Statement"></asp:MenuItem>
                             <asp:MenuItem Text="Transfer" Value="Transfer" NavigateUrl="Transfer.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Deposit" Value="Deposit"></asp:MenuItem>
+                            <asp:MenuItem Text="Deposit" Value="Deposit" NavigateUrl="~/Saving/Deposit.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Withdraw" Value="Withdraw"></asp:MenuItem>
                             <asp:MenuItem Text="Pay Bill" Value="Pay Bill"></asp:MenuItem>
                         </Items>
