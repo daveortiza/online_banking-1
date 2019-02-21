@@ -50,8 +50,11 @@ public partial class Saving_Transfer : System.Web.UI.Page
                     {
                         bal += Convert.ToInt32(TextBox2.Text);
                         balance = Convert.ToString(bal);
+                        AddBal();
                         cb = ob - Convert.ToInt32(TextBox2.Text);
+                        DeductBal();
                         Session["Account_Balance"] = cb;
+                        Response.Redirect("~/Saving/TransferSucessfull.aspx");
                         Success_lbl.Text = "<font color=Green>" + "Transaction Successfull<br> Balance updated" + "</font>";
                         break;
                     }
@@ -68,4 +71,23 @@ public partial class Saving_Transfer : System.Web.UI.Page
             }
         }
     }
+    private void DeductBal()
+    {
+        string update_Balance = "update sinup set Account_Balance='" + cb + "' Where Account_Number='" + acno + "'";
+        con.Open();
+        cmd.CommandText = update_Balance;
+        cmd.Connection = con;
+        cmd.ExecuteNonQuery();
+        con.Close();
+    }
+    private void AddBal()
+    {
+        string update_Balance = "update sinup set Account_Balance='" + bal + "' Where Account_Number='" + Account + "'";
+        con.Open();
+        cmd.CommandText = update_Balance;
+        cmd.Connection = con;
+        cmd.ExecuteNonQuery();
+        con.Close();
+    }
+
 }
