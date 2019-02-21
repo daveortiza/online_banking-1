@@ -91,7 +91,7 @@
             <tr>
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                 <td>
-                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn-primary">Apply Now
+                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn-primary" CausesValidation="False" PostBackUrl="~/Apply-Now.aspx">Apply Now
     <span aria-hidden="true" class="glyphicon glyphicon-hand-up"></span>
                     </asp:LinkButton></td>
                 <td>&nbsp;</td>
