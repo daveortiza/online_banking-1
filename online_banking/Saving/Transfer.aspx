@@ -10,7 +10,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="container">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-2"><!--Account Number  Row-->
                 <asp:Label ID="Trans_acno_lbl" runat="server" Text="Account Number" CssClass="auto-style1"></asp:Label>
                 </div>
             <div class="col-md-2">
@@ -20,7 +20,7 @@
         </div>
         <br />
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-2"><!--Confirm Account Number Row-->
                 <asp:Label ID="Trans_acno_lbl0" runat="server" Text="Confirm account number" CssClass="auto-style1"></asp:Label>
                 </div>
             <div class="col-md-2">
@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-2"><!--Transfer Row-->
             <asp:Label ID="Trans_bal_lbl" runat="server" Text="Transfer amount" CssClass="auto-style1"></asp:Label>
                 </div>
             <div class="col-md-2">
@@ -39,6 +39,15 @@
         </div>
         <br />
         <div class="row">
+            <div class="col-md-2"><!--Account Holders Name Row-->
+            <asp:Label ID="Label1" runat="server" Text="Account Holder's name" CssClass="auto-style1"></asp:Label>
+                </div>
+            <div class="col-md-2">
+                        <asp:TextBox ID="TextBox4" runat="server" CssClass="auto-style1"></asp:TextBox>
+            </div>
+        </div>
+
+        <div class="row"><!--Transfer Button  Row-->
             <div class="col-md-4 " style="text-align: center">
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>
