@@ -89,7 +89,7 @@
                 </td>
                 <td class="auto-style8" colspan="2">
                     <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
-                    <ajaxToolkit:CalendarExtender ID="TextBox8_CalendarExtender" runat="server" TargetControlID="TextBox8" />
+                    <ajaxToolkit:CalendarExtender ID="TextBox8_CalendarExtender" runat="server" TargetControlID="TextBox8" Format="dd/MMM/yyyy" />
                     <asp:ScriptManager ID="ScriptManager1" runat="server">
                     </asp:ScriptManager>
                 </td>
