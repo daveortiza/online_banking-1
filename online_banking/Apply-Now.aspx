@@ -117,9 +117,9 @@
             </div>
             <div class="col-md-4">
                 <asp:TextBox ID="passwd_tb" runat="server" TextMode="Password"></asp:TextBox>
-                <ajaxToolkit:PasswordStrength ID="passwd_tb_PasswordStrength" runat="server" MinimumLowerCaseCharacters="1" MinimumNumericCharacters="1" MinimumUpperCaseCharacters="1" TargetControlID="passwd_tb" RequiresUpperAndLowerCaseCharacters="True" StrengthIndicatorType="BarIndicator" PreferredPasswordLength="8" />
+                <ajaxToolkit:PasswordStrength ID="passwd_tb_PasswordStrength" runat="server" BehaviorID="passwd_tb_PasswordStrength" MinimumLowerCaseCharacters="1" MinimumNumericCharacters="1" MinimumUpperCaseCharacters="1" PreferredPasswordLength="8" RequiresUpperAndLowerCaseCharacters="True" TargetControlID="passwd_tb" />
             </div>
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <asp:RequiredFieldValidator ID="passwd_reqval" runat="server" Text="*" ErrorMessage="Password field cannot be empty" ForeColor="Red" ControlToValidate="passwd_tb"></asp:RequiredFieldValidator>
             </div>
         </div>
@@ -131,7 +131,6 @@
             </div>
             <div class="col-md-4">
                 <asp:TextBox ID="cnfrmPasswd_tb" runat="server" TextMode="Password"></asp:TextBox>
-                <ajaxToolkit:PasswordStrength ID="cnfrmPasswd_tb_PasswordStrength" runat="server" BehaviorID="cnfrmPasswd_tb_PasswordStrength" PreferredPasswordLength="8" RequiresUpperAndLowerCaseCharacters="True" TargetControlID="cnfrmPasswd_tb" />
             </div>
             <div class="col-md-2 text-left">
                 <asp:RequiredFieldValidator ID="cnfrmPasswd_reqval" runat="server" ErrorMessage="Confirm password field cannot be empty" ControlToValidate="cnfrmPasswd_tb" ForeColor="Red">*</asp:RequiredFieldValidator>
@@ -145,11 +144,12 @@
             <!--Submit Button-->
             <div class="col-md-4"></div>
             <div class="col-md-3">
-                <asp:Button ID="submit_btn" runat="server" Text="Submit" OnClick="submit_btn_Click" EnableViewState="False" PostBackUrl="~/Login.aspx" />
+                <asp:Button ID="submit_btn" runat="server" Text="Submit" OnClick="submit_btn_Click" EnableViewState="False" />
             </div>
             <div class="col-md-2 text-center">
             </div>
         </div>
+        <asp:Label ID="Label2" runat="server"></asp:Label>
         <br />
         <div class="row">
             <!--Validatiion Summary-->

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Registration_successfull.aspx.cs" Inherits="Registration_successfull" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Verification_Successfull.aspx.cs" Inherits="Registration_successfull" %>
 
 <!DOCTYPE html>
 

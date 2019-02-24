@@ -36,7 +36,7 @@ public partial class Login : System.Web.UI.Page
             Session["lname"] = dt.Rows[i]["lname"].ToString();
             Session["Account_number"] =Account;
             Session["Account_Balance"] = balance;
-            if (Account == email_tb.Text && Password == passwd_tb.Text)
+            if (Account == acno_tb.Text && Password == passwd_tb.Text)
             {
                 if (dt.Rows[i]["Account"].ToString() == "Admin")
                     Response.Redirect("~/Admin/Admin.aspx");
@@ -49,6 +49,10 @@ public partial class Login : System.Web.UI.Page
                 else
                     error_lbl.Text = "Invalid UserName or Password";
 
+            }
+            else
+            {
+                error_lbl.Text = "Invalid Account number or password";
             }
         }
     }
