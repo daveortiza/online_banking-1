@@ -1,10 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BeforeLogin.master" AutoEventWireup="true" CodeFile="Apply-Now.aspx.cs" Inherits="Apply_Now" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <style type="text/css">
+        .auto-style1 {
+            font-size: x-large;
+            color: #FF0000;
+            background-color: #FFFF00;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <div class="container">
         <br />
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <asp:Label ID="email_exists_lbl" runat="server" Text="" CssClass="auto-style1"></asp:Label>
+            </div>
+        </div>
         <div class="row">
             <!--Name Fields-->
             <div class="col-md-2">
