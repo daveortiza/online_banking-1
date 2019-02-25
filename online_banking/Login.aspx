@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BeforeLogin.master" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Login" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style type="text/css">
         .auto-style1 {
@@ -65,10 +66,18 @@
         </div>
         <!--Error message label-->
         <div class="row">
-            <div class="col-md-12 text-center">
+            <div class="col-md-1"></div>
+            <div class="col-md-11 text-center">
                 <asp:Label ID="error_lbl" runat="server" CssClass="auto-style1" ForeColor="Red"></asp:Label>
             </div>
         </div>
         <br />
+        <!--- forgot password-->
+        <div class="row">
+            <div class="col-md-5"></div>
+            <div class="col-md-4">
+                <asp:HyperLink ID="forgot_Password_link" runat="server" CssClass="auto-style1">Forgot Password?</asp:HyperLink>
+            </div>
+        </div>
     </div>
 </asp:Content>

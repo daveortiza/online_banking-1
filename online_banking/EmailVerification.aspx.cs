@@ -25,13 +25,13 @@ public partial class EmailVerification : System.Web.UI.Page
         da.Fill(ds);
         if (ds.Tables[0].Rows.Count > 0)
         {
-            string activationcode;
+            string activationcode, Acno;
             activationcode = ds.Tables[0].Rows[0]["activationcode"].ToString();
+            Acno = ds.Tables[0].Rows[0]["Account_Number"].ToString();
             if (activationcode == activation_tb.Text)
             {
                 changedstatus();
-                Sucess_lbl.Text = "Your email has been verified";
-                Response.Redirect("~/Registration_successfull.aspx");
+                Response.Redirect("~/Verification_Successfull.aspx?acno="+Acno);
             }
             else
             {
@@ -44,7 +44,7 @@ public partial class EmailVerification : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection(conString);
         con.Open();
-        SqlCommand cmd = new SqlCommand("update Login set status='Verified' Where email='" + Request.QueryString["emailadd"] + "'",con);
+        SqlCommand cmd = new SqlCommand("update Login set IsVerified='yes',IsActivated='yes' Where email='" + Request.QueryString["emailadd"] + "'",con);
         cmd.ExecuteNonQuery();
         con.Close();
     }

@@ -46,7 +46,7 @@ public partial class Apply_Now : System.Web.UI.Page
             id = (int)cmd.ExecuteScalar();
             Random random = new Random();
             activationcode = random.Next(1000, 999999);
-            cmd.CommandText = "insert into Login(Account_Number,email,status,pass,activationcode) values('" + id + "',@EmailID,'Unverified',@pwd,'" + activationcode + "')";
+            cmd.CommandText = "insert into Login(Account_Number,email,IsVerified,IsActivated,pass,activationcode) values('" + id + "',@EmailID,'no','no',@pwd,'" + activationcode + "')";
             cmd.Parameters.AddWithValue("@EmailID", email_tb.Text);
             cmd.Parameters.AddWithValue("@pwd", passwd_tb.Text);
             cmd.ExecuteNonQuery();
