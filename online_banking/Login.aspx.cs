@@ -24,7 +24,7 @@ public partial class Login : System.Web.UI.Page
     }
     protected void Login_tbn_Click(object sender, EventArgs e)
     {
-        SqlCommand check_User_Name = new SqlCommand("SELECT COUNT(*) FROM Login WHERE Account_Number='" + acno_tb.Text + "'", con);
+        SqlCommand check_User_Name = new SqlCommand("SELECT COUNT(*) FROM sinup WHERE Account_Number='" + acno_tb.Text + "'", con);
         con.Open();
         int UserExist = (int)check_User_Name.ExecuteScalar();
         if (UserExist > 0)
