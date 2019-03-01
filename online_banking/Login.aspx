@@ -76,7 +76,7 @@
         <div class="row">
             <div class="col-md-5"></div>
             <div class="col-md-4">
-                <asp:HyperLink ID="forgot_Password_link" runat="server" CssClass="auto-style1">Forgot Password?</asp:HyperLink>
+                <asp:LinkButton ID="forget_password_lnkbtn" runat="server" CausesValidation="False" Font-Size="X-Large" ForeColor="Blue" OnClick="forget_password_lnkbtn_Click">Forgot Password</asp:LinkButton>
             </div>
         </div>
     </div>
