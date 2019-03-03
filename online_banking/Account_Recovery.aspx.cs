@@ -21,7 +21,7 @@ public partial class Account_Recovery : System.Web.UI.Page
     protected void verify_btn_Click(object sender, EventArgs e)
     {
         SqlConnection con = new SqlConnection(conString);
-        SqlCommand cmd = new SqlCommand("select * from Login Where email='" + Request.QueryString["emailadd"] + "'", con);
+        SqlCommand cmd = new SqlCommand("select * from sinup Where email='" + Request.QueryString["emailadd"] + "'", con);
         SqlDataAdapter da = new SqlDataAdapter();
         da.SelectCommand = cmd;
         DataSet ds = new DataSet();

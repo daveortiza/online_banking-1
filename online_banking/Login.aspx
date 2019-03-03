@@ -31,7 +31,7 @@
                 <asp:Label ID="Label2" runat="server" Text="Password" Font-Size="X-Large"></asp:Label>
             </div>
             <div class="col-md-2">
-                <asp:TextBox ID="passwd_tb" runat="server" CssClass="auto-style2" ForeColor="Red" TextMode="Password" Style="font-size: x-large" Width="240px"></asp:TextBox>
+                <asp:TextBox ID="passwd_tb" runat="server" ForeColor="Red" TextMode="Password" Style="font-size: x-large" Width="240px"></asp:TextBox>
             </div>
             <div class="col-md-1 text-right">
                 <asp:RequiredFieldValidator ID="PaswdTb_reqval" runat="server" ControlToValidate="passwd_tb" ErrorMessage="Password field cannot be empty" ForeColor="Red">*</asp:RequiredFieldValidator>
@@ -48,7 +48,7 @@
             <div class="col-md-5 text-right"></div>
             <div class="col-md-1">
                 <asp:Label ID="Label4" runat="server" ForeColor="#0066FF" Text=""></asp:Label><br />
-                <asp:Button ID="login_btn" runat="server" CssClass="auto-style2 btn-info" Text="Login" OnClick="Login_tbn_Click" Style="font-size: x-large" Font-Size="22pt" />
+                <asp:Button ID="login_btn" runat="server" CssClass="auto-style2 btn-info" Text="Login" OnClick="Login_btn_Click" Style="font-size: x-large" Font-Size="22pt" />
             </div>
             <div class="col-md-3 text-center">
                 <asp:Label ID="Label3" runat="server" ForeColor="#0066FF" Text="Don't have account ?" Font-Size="Large"></asp:Label><br />

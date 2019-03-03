@@ -22,7 +22,7 @@ public partial class Login : System.Web.UI.Page
     {
         forget_password_lnkbtn.Visible = false;
     }
-    protected void Login_tbn_Click(object sender, EventArgs e)
+    protected void Login_btn_Click(object sender, EventArgs e)
     {
         SqlCommand check_User_Name = new SqlCommand("SELECT COUNT(*) FROM sinup WHERE Account_Number='" + acno_tb.Text + "'", con);
         con.Open();
