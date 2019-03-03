@@ -16,7 +16,7 @@ public partial class Saving_Transfer : System.Web.UI.Page
     SqlCommand cmd = new SqlCommand();
     SqlDataAdapter sqlda;
     DataTable dt;
-    int RowCount;
+    int RowCount,transactionID;
     protected void Page_Load(object sender, EventArgs e)
     {
         acno=""+Session["Account_number"];
@@ -47,15 +47,18 @@ public partial class Saving_Transfer : System.Web.UI.Page
                 else
                 {
                     if (cb >= Convert.ToInt32(TextBox2.Text))
-                    {
+                    {   
                         bal += Convert.ToInt32(TextBox2.Text);
                         balance = Convert.ToString(bal);
+                        con.Open();
                         AddBal();
                         cb = ob - Convert.ToInt32(TextBox2.Text);
                         DeductBal();
                         Session["Account_Balance"] = cb;
+                        Debit_transaction();
+                        Credit_transaction();
+                        con.Close();
                         Response.Redirect("~/Saving/TransferSucessfull.aspx");
-                        Success_lbl.Text = "<font color=Green>" + "Transaction Successfull<br> Balance updated" + "</font>";
                         break;
                     }
                     else
@@ -74,20 +77,33 @@ public partial class Saving_Transfer : System.Web.UI.Page
     private void DeductBal()
     {
         string update_Balance = "update sinup set Account_Balance='" + cb + "' Where Account_Number='" + acno + "'";
-        con.Open();
         cmd.CommandText = update_Balance;
         cmd.Connection = con;
         cmd.ExecuteNonQuery();
-        con.Close();
     }
     private void AddBal()
     {
-        string update_Balance = "update sinup set Account_Balance='" + bal + "' Where Account_Number='" + Account + "'";
-        con.Open();
+        string update_Balance = "update sinup set Account_Balance='" + bal + "' Where Account_Number='" + Account + "'"; 
         cmd.CommandText = update_Balance;
         cmd.Connection = con;
-        cmd.ExecuteNonQuery();
-        con.Close();
+        cmd.ExecuteNonQuery();   
     }
-
+    private void Debit_transaction()
+    {  
+        Random random = new Random();
+        transactionID = random.Next(1000, 999999);
+        string insert_transaction = "insert into Transactions (Transaction_ID,Account_Number,Activity,Amount,Operation)" +
+            "values('" + transactionID + "','" + acno + "','Money Transfer','" + TextBox2.Text + "','Debited')";
+        cmd = new SqlCommand(insert_transaction, con);
+        cmd.ExecuteNonQuery();
+    }
+    private void Credit_transaction()
+    {
+        Random random = new Random();
+        transactionID = random.Next(1000, 999999);
+        string insert_transaction = "insert into Transactions (Transaction_ID,Account_Number,Activity,Amount,Operation)" +
+            "values('" + transactionID + "','" + Account + "','Money Recieved','" + TextBox2.Text + "','Credited')";
+        cmd = new SqlCommand(insert_transaction, con);
+        cmd.ExecuteNonQuery();
+    }
 }

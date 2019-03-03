@@ -12,7 +12,7 @@ public partial class Saving_Withdraw : System.Web.UI.Page
     public static string conString = ConfigurationManager.ConnectionStrings["Bank_test"].ConnectionString;
     SqlConnection con = new SqlConnection(conString);
     SqlCommand cmd = new SqlCommand();
-    int acno;
+    int acno,transactionID;
     protected void Page_Load(object sender, EventArgs e)
     {
         acno = Convert.ToInt32(Session["Account_number"]);
@@ -31,8 +31,16 @@ public partial class Saving_Withdraw : System.Web.UI.Page
         Session["Account_Balance"] = InvAmount;
         cmd.Parameters.AddWithValue("Account_Balance", InvAmount);
         cmd.ExecuteNonQuery();
-        con.Close();
-        Amount_tb.Text = "";
+        Debit_transaction();
         Response.Redirect("~/Saving/WithdrawSucessfull.aspx");
+    }
+    private void Debit_transaction()
+    {
+        Random random = new Random();
+        transactionID = random.Next(1000, 999999);
+        string insert_transaction = "insert into Transactions (Transaction_ID,Account_Number,Activity,Amount,Operation)" +
+            "values('" + transactionID + "','" + acno + "','Withdraw','" + Amount_tb.Text + "','Debited')";
+        cmd = new SqlCommand(insert_transaction, con);
+        cmd.ExecuteNonQuery();
     }
 }

@@ -29,17 +29,15 @@ public partial class Saving_Deposit : System.Web.UI.Page
         Session["Account_Balance"] = InvAmount;
         cmd.Parameters.AddWithValue("Account_Balance", InvAmount);
         cmd.ExecuteNonQuery();
-        con.Close();
         transaction();
         Response.Redirect("~/Saving/Deposit_Successfull.aspx");
     }
     private void transaction()
     {
-        con.Open();
         Random random = new Random();
         transactionID = random.Next(1000, 999999);
         string insert_transaction = "insert into Transactions (Transaction_ID,Account_Number,Activity,Amount,Operation)" +
-            "values('" + transactionID + "','" + acno + "','Deposit','" + Amount_tb.Text + "','Debited')";
+            "values('" + transactionID + "','" + acno + "','Deposit','" + Amount_tb.Text + "','Credited')";
         cmd = new SqlCommand(insert_transaction, con);
         cmd.ExecuteNonQuery();
     }
