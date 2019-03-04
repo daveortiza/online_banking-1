@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Saving/Saving.master" AutoEventWireup="true" CodeFile="ChangePassword.aspx.cs" Inherits="Saving_ChangePassword" %>
 
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <%--<style type="text/css">
     *{
@@ -15,10 +17,10 @@
                 <asp:Label ID="Label1" runat="server" Text="Current Password: "></asp:Label>
             </div>
             <div class="col-md-2">
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                <asp:TextBox ID="CurrentPasswd_tb" runat="server" TextMode="Password"></asp:TextBox>
             </div>
             <div class="col-md-5">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Current Password field cannot be empty" ControlToValidate="TextBox1"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Current Password field cannot be empty" ControlToValidate="CurrentPasswd_tb"></asp:RequiredFieldValidator>
             </div>
         </div>
         <br />
@@ -28,10 +30,13 @@
                 <asp:Label ID="Label2" runat="server" Text="New Password: "></asp:Label>
             </div>
             <div class="col-md-2">
-                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                <asp:TextBox ID="NewPasswd_tb" runat="server" TextMode="Password"></asp:TextBox>
+                <ajaxToolkit:PasswordStrength ID="NewPasswd_tb_PasswordStrength" runat="server" MinimumLowerCaseCharacters="1" MinimumNumericCharacters="1" MinimumUpperCaseCharacters="1" PreferredPasswordLength="8" TargetControlID="NewPasswd_tb" />
+                <asp:ScriptManager ID="ScriptManager1" runat="server">
+                </asp:ScriptManager>
             </div>
             <div class="col-md-5 text-left">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="New Password field cannot be empty" ControlToValidate="TextBox2"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="New Password field cannot be empty" ControlToValidate="NewPasswd_tb"></asp:RequiredFieldValidator>
             </div>
         </div>
     <br />
@@ -41,10 +46,10 @@
                 <asp:Label ID="Label3" runat="server" Text="Confirm Password: "></asp:Label>
             </div>
             <div class="col-md-2">
-                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                <asp:TextBox ID="CnfrmPasswd_tb" runat="server" TextMode="Password"></asp:TextBox>
             </div>
             <div class="col-md-5">
-                <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="New Paswords do not Match" ControlToCompare="TextBox2" ControlToValidate="TextBox3"></asp:CompareValidator>
+                <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="New Paswords do not Match" ControlToCompare="NewPasswd_tb" ControlToValidate="CnfrmPasswd_tb"></asp:CompareValidator>
             </div>
         </div>
         <br />

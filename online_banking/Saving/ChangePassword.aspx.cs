@@ -25,9 +25,9 @@ public partial class Saving_ChangePassword : System.Web.UI.Page
         cmd = new SqlCommand(retrive, con);
         con.Open();
         string password =Convert.ToString(cmd.ExecuteScalar());
-        if (password == TextBox1.Text && TextBox2.Text!=null)
+        if (password == CurrentPasswd_tb.Text && NewPasswd_tb.Text!=null)
         {
-            string update_Password = "update sinup set pass='" + TextBox2.Text + "' Where Account_Number='" + acno + "'";
+            string update_Password = "update sinup set pass='" + NewPasswd_tb.Text + "' Where Account_Number='" + acno + "'";
             cmd = new SqlCommand(update_Password, con);
             cmd.ExecuteNonQuery();
             con.Close();
