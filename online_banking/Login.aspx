@@ -1,39 +1,34 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BeforeLogin.master" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Login" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <style type="text/css">
-        .auto-style1 {
-            font-size: x-large;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div class="container">
+    <div class="container-fluid">
         <br />
         <!--Account number field-->
         <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-3 text-right">
+            <div class="col-md-3"></div>
+            <div class="col-md-2">
                 <asp:Label ID="Label1" runat="server" Text="Account Number" Font-Size="X-Large"></asp:Label>
             </div>
             <div class="col-md-2">
                 <asp:TextBox ID="acno_tb" runat="server" Font-Size="X-Large" placeholder="8xxxxx01" Width="240px"></asp:TextBox>
             </div>
-            <div class="col-md-1 text-right">
+            <div class="col-md-1">
                 <asp:RequiredFieldValidator ID="acno_reqval" runat="server" ControlToValidate="acno_tb" ErrorMessage="Account number cannot be empty" ForeColor="Red">*</asp:RequiredFieldValidator>
             </div>
         </div>
         <br />
         <!--Password field-->
         <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-3 text-right">
+            <div class="col-md-3"></div>
+            <div class="col-md-2">
                 <asp:Label ID="Label2" runat="server" Text="Password" Font-Size="X-Large"></asp:Label>
             </div>
             <div class="col-md-2">
                 <asp:TextBox ID="passwd_tb" runat="server" ForeColor="Red" TextMode="Password" Style="font-size: x-large" Width="240px"></asp:TextBox>
             </div>
-            <div class="col-md-1 text-right">
+            <div class="col-md-1">
                 <asp:RequiredFieldValidator ID="PaswdTb_reqval" runat="server" ControlToValidate="passwd_tb" ErrorMessage="Password field cannot be empty" ForeColor="Red">*</asp:RequiredFieldValidator>
             </div>
         </div>
