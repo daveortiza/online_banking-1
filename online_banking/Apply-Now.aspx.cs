@@ -28,7 +28,7 @@ public partial class Apply_Now : System.Web.UI.Page
         }
         else
         {
-            SqlCommand cmd = new SqlCommand("insert into signup (fname,mname,lname,Dob,gender,email,address,mobile,Account,Account_Balance,pass)" +
+            SqlCommand cmd = new SqlCommand("insert into sinup (fname,mname,lname,Dob,gender,email,address,mobile,Account,Account_Balance,pass)" +
          "values(@fname,@mname,@lname,@Dob,@gender,@email,@address,@mobile,'Saving',@Account_Balance,@pass)", con);
             cmd.Parameters.AddWithValue("@fname", fname_tb.Text);
             cmd.Parameters.AddWithValue("@mname", mname_tb.Text);
@@ -41,7 +41,7 @@ public partial class Apply_Now : System.Web.UI.Page
             cmd.Parameters.AddWithValue("@Account_Balance", deposit_tb.Text);
             cmd.Parameters.AddWithValue("@pass", passwd_tb.Text);
             cmd.ExecuteNonQuery();
-            cmd.CommandText = "SELECT  Top 1 * FROM signup ORDER BY Account_Number DESC";
+            cmd.CommandText = "SELECT  Top 1 * FROM sinup ORDER BY Account_Number DESC";
             cmd.Connection = con;
             acno = (int)cmd.ExecuteScalar();
             Random random = new Random();
