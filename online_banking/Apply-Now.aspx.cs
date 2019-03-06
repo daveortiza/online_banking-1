@@ -13,7 +13,7 @@ public partial class Apply_Now : System.Web.UI.Page
     SqlCommand cmd = new SqlCommand();
     SqlConnection con = new SqlConnection(conString);
     SqlDataReader reader;
-    int id, activationcode;
+    int activationcode,transactionID,acno;
     protected void Page_Load(object sender, EventArgs e)
     {
         con.Open();
@@ -43,13 +43,14 @@ public partial class Apply_Now : System.Web.UI.Page
             cmd.ExecuteNonQuery();
             cmd.CommandText = "SELECT  Top 1 * FROM signup ORDER BY Account_Number DESC";
             cmd.Connection = con;
-            id = (int)cmd.ExecuteScalar();
+            acno = (int)cmd.ExecuteScalar();
             Random random = new Random();
             activationcode = random.Next(1000, 999999);
-            cmd.CommandText = "insert into Login(Account_Number,email,IsVerified,IsActivated,pass,activationcode) values('" + id + "',@EmailID,'no','no',@pwd,'" + activationcode + "')";
+            cmd.CommandText = "insert into Login(Account_Number,email,IsVerified,IsActivated,pass,activationcode) values('" + acno + "',@EmailID,'no','no',@pwd,'" + activationcode + "')";
             cmd.Parameters.AddWithValue("@EmailID", email_tb.Text);
             cmd.Parameters.AddWithValue("@pwd", passwd_tb.Text);
             cmd.ExecuteNonQuery();
+            transaction();
             sendcode();
             con.Close();
             Response.Redirect("~/EmailVerification.aspx?emailadd=" + email_tb.Text);
@@ -64,7 +65,7 @@ public partial class Apply_Now : System.Web.UI.Page
         smtp.EnableSsl = true;
         MailMessage msg = new MailMessage();
         msg.Subject = "Activation Code to Verify Email Address";
-        msg.Body = "Dear " + fname_tb.Text + " " + lname_tb.Text + " Your Activation Code is: " + activationcode + "\n";
+        msg.Body = "Dear " + fname_tb.Text + " " + lname_tb.Text + " Your Activation Code is: " + activationcode + "\n And Your Account Number is "+acno+"\n";
         string toaddress = email_tb.Text;
         msg.To.Add(toaddress);
         String fromaddress = "0906rajgada@gmail.com";
@@ -77,5 +78,14 @@ public partial class Apply_Now : System.Web.UI.Page
         {
             throw;
         }
+    }
+    private void transaction()
+    {
+        Random random = new Random();
+        transactionID = random.Next(1000, 999999);
+        string insert_transaction = "insert into Transactions (Transaction_ID,Account_Number,Activity,Amount,Operation)" +
+            "values('" + transactionID + "','" + acno + "','Intial deposit while opening Account','" + deposit_tb.Text + "','Credited')";
+        cmd = new SqlCommand(insert_transaction, con);
+        cmd.ExecuteNonQuery();
     }
 }
