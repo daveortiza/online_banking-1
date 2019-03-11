@@ -26,7 +26,7 @@
                 <asp:Label ID="Label2" runat="server" Text="Password" Font-Size="X-Large"></asp:Label>
             </div>
             <div class="col-md-2">
-                <asp:TextBox ID="passwd_tb" runat="server" ForeColor="Red" TextMode="Password" Style="font-size: x-large" Width="240px"></asp:TextBox>
+                <asp:TextBox ID="passwd_tb" runat="server" TextMode="Password" Style="font-size: x-large" Width="240px"></asp:TextBox>
             </div>
             <div class="col-md-1">
                 <asp:RequiredFieldValidator ID="PaswdTb_reqval" runat="server" ControlToValidate="passwd_tb" ErrorMessage="Password field cannot be empty" ForeColor="Red">*</asp:RequiredFieldValidator>

@@ -12,6 +12,7 @@ public partial class Saving_Transactions : System.Web.UI.Page
     string cs = ConfigurationManager.ConnectionStrings["Bank_test"].ConnectionString;
     protected void Page_Load(object sender, EventArgs e)
     {
+        Ac_bal.Text = "<Strong>Account Balance</Strong>:- "+Session["Account_Balance"];
         acno =Convert.ToInt32(Session["Account_Number"]);
         using (SqlConnection con = new SqlConnection(cs))
         {

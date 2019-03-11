@@ -61,7 +61,7 @@
                         </li>
                     </ul>
                     <p class="navbar-text navbar-right">
-                        <asp:Label ID="Welcome_lbl" runat="server" Text=""></asp:Label>
+                        
                     </p>
                 </div>
             </nav>
@@ -69,10 +69,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-left">
-                    <asp:Label ID="Acno_lbl" runat="server" CssClass="auto-style1"></asp:Label>
+                    <asp:Label ID="Welcome_lbl" runat="server" Font-Size="Large"></asp:Label>
                 </div>
                 <div class="col-md-6 text-right">
-                    <asp:Label ID="Ac_bal" runat="server" CssClass="auto-style1"></asp:Label>
+                   <asp:Label ID="Acno_lbl" runat="server" CssClass="auto-style1"></asp:Label> 
                 </div>
             </div>
             <br />
@@ -81,10 +81,10 @@
                 <div class="col-md-2">
                     <asp:Menu ID="Menu1" runat="server" CssClass="auto-style1" Width="170px">
                         <Items>
+                            <asp:MenuItem Text="Check Balance" Value="Check Balance" NavigateUrl="~/Saving/Transactions.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Transfer" Value="Transfer" NavigateUrl="Transfer.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Deposit" Value="Deposit" NavigateUrl="~/Saving/Deposit.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Withdraw" Value="Withdraw" NavigateUrl="~/Saving/Withdraw.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Transactions" Value="Transactions" NavigateUrl="~/Saving/Transactions.aspx"></asp:MenuItem>
                         </Items>
                     </asp:Menu>
                 </div>
