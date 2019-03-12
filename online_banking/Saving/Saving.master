@@ -81,7 +81,7 @@
                 <div class="col-md-2">
                     <asp:Menu ID="Menu1" runat="server" CssClass="auto-style1" Width="170px">
                         <Items>
-                            <asp:MenuItem Text="Check Balance" Value="Check Balance" NavigateUrl="~/Saving/Transactions.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Check Balance" Value="Check Balance" NavigateUrl="~/Saving/CheckBalance.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Transfer" Value="Transfer" NavigateUrl="Transfer.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Deposit" Value="Deposit" NavigateUrl="~/Saving/Deposit.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Withdraw" Value="Withdraw" NavigateUrl="~/Saving/Withdraw.aspx"></asp:MenuItem>
