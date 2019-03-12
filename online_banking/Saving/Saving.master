@@ -38,14 +38,13 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="My-Account.aspx">Home</a></li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Investments<span class="caret"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Services<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Recurring Deposit</a></li>
                                 <li><a href="#">Fixed Deposit</a></li>
                                 <li><a href="#">Public provident fund</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Loans</a></li>
                         <li><a href="#">Contact us</a></li>
                     </ul>
                     <ul class="nav navbar-right navbar-nav">
